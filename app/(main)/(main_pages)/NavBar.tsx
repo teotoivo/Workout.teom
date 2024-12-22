@@ -6,20 +6,20 @@ import React from "react";
 export default function NavBar() {
   return (
     <>
-      <div className="mt-auto w-full flex justify-evenly py-4">
+      <div className="w-full flex justify-evenly py-4">
         <Link href="/">
-          <Button className="h-fit py-1">
-            <House className="!w-7 !h-7" />
+          <Button variant="ghost" className="h-fit py-1">
+            Home
           </Button>
         </Link>
         <Link href="/workouts">
-          <Button className="h-fit py-1">
-            <Dumbbell className="!w-7 !h-7" />
+          <Button variant="ghost" className="h-fit py-1">
+            Workouts
           </Button>
         </Link>
         <Link href="/profile">
-          <Button className="h-fit py-1">
-            <User className="!w-7 !h-7" />
+          <Button variant="ghost" className="h-fit py-1">
+            User
           </Button>
         </Link>
       </div>

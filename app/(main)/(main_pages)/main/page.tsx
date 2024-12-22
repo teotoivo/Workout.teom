@@ -2,11 +2,11 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Button } from "@/components/ui/button";
 import {
   Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
   CardHeader,
   CardTitle,
-  CardDescription,
-  CardContent,
-  CardFooter,
 } from "@/components/ui/card";
 import {
   DropdownMenu,
@@ -19,17 +19,11 @@ import { EllipsisVertical, Pen, Trash } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
-export default function page() {
+import Layout from "../main_layout";
+export default function Page() {
   return (
-    <div className="h-full overflow-y-scroll flex p-4 flex-col">
-      <div className="w-full flex flex-col gap-4">
-        <Button className="w-full">Start new empty workout</Button>
-        <Button className="w-full">New Routine</Button>
-
-        <h1 className="text-xl">Routines</h1>
-      </div>
-
-      <div className="w-full flex flex-col gap-4 pt-4">
+    <Layout>
+      <div className="h-full overflow-y-scroll flex p-4 flex-col">
         <Card className="h-min w-full relative">
           <CardHeader className="pb-4">
             <CardTitle>
@@ -38,7 +32,12 @@ export default function page() {
               </Link>
             </CardTitle>
 
-            <CardDescription>description</CardDescription>
+            <CardDescription className="text-current">
+              <div>
+                <p className="text-muted-foreground text-xs">Time</p>
+                <p className="">1h 30min</p>
+              </div>
+            </CardDescription>
 
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
@@ -62,11 +61,25 @@ export default function page() {
           </CardHeader>
 
           <CardContent>
-            <Button className="w-full">Start Workout</Button>
+            <div className="w-full max-h-[10dvh] overflow-y-scroll">
+              <div className="flex items-center w-full gap-2">
+                <Avatar>
+                  <AvatarImage src="" />
+                  <AvatarFallback>B</AvatarFallback>
+                </Avatar>
+                <Link className="underline" href="#">
+                  2x Bench press
+                </Link>
+              </div>
+            </div>
           </CardContent>
-          <CardFooter></CardFooter>
+          <CardFooter>
+            <CardDescription className="absolute bottom-2 right-2 !mt-0">
+              14/12/2024
+            </CardDescription>
+          </CardFooter>
         </Card>
       </div>
-    </div>
+    </Layout>
   );
 }
